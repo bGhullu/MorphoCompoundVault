@@ -22,15 +22,15 @@ contract StoaMorphoCompoundVault {
     }
 
     function claimRewards() external {
-        ISupplyVault(WETH).claimRewards(address(this));
+        ISupplyVault(WETH).claimRewards(msg.sender);
     }
 
     function withdraw(uint256 _amount) external {
         IERC20(mcWETH).approve(address(this), _amount);
         ISupplyVault(mcWETH).withdraw(
             _amount,
-            address(this), // the address of the receiver of the funds withdrawn
-            address(this) // the address of the user you want to withdraw from (they must have approved this contract to spend their tokens)
+            msg.sender, // the address of the receiver of the funds withdrawn
+            msg.sender // the address of the user you want to withdraw from (they must have approved this contract to spend their tokens)
         );
     }
 }
