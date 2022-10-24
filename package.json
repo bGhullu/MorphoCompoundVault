@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@chainlink/contracts": "^0.5.1",
     "@openzeppelin/contracts-upgradeable": "^4.8.0-rc.1",
     "@uniswap/v3-periphery": "^1.4.2",
     "dotenv": "^16.0.3",
