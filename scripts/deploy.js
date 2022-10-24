@@ -12,7 +12,7 @@ async function main() {
     const Stoa = await ethers.getContractFactory("StoaMorphoCompoundVault")
     const stoa = await Stoa.deploy()
     await stoa.deployed()
-    await approveErc20(weth, mcWeth,AMOUNT,deployer)
+    // await approveErc20(weth, mcWeth,AMOUNT,deployer)
     console.log("Depositing WETH...")
     await stoa.deposit(AMOUNT)
     console.log("Deposited")
@@ -22,12 +22,12 @@ async function main() {
     console.log("Withdraw Success!")   
 }
 
-async function approveErc20(erc20Address, spenderAddress, amount, signer) {
-    const erc20Token = await ethers.getContractAt("IERC20", erc20Address, signer)
-    txResponse = await erc20Token.approve(spenderAddress, amount)
-    await txResponse.wait(1)
-    console.log("Approved!")
-}
+// async function approveErc20(erc20Address, spenderAddress, amount, signer) {
+//     const erc20Token = await ethers.getContractAt("IERC20", erc20Address, signer)
+//     txResponse = await erc20Token.approve(spenderAddress, amount)
+//     await txResponse.wait(1)
+//     console.log("Approved!")
+// }
 
 main()
     .then(() => process.exit(0))
