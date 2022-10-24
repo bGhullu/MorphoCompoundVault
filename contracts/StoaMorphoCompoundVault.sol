@@ -21,6 +21,14 @@ contract StoaMorphoCompoundVault {
         ISupplyVault(mcWETH).deposit(_amount, msg.sender);
     }
 
+    function getETHBalance() public view returns (uint256) {
+        return ISupplyVault(mcWETH).balanceOf(msg.sender);
+    }
+
+    function getUnclaimedRewards() public view returns (uint256 unclaimed) {
+        (, unclaimed) = ISupplyVault(mcWETH).userRewards(msg.sender);
+    }
+
     function claimRewards() external {
         ISupplyVault(WETH).claimRewards(msg.sender);
     }
