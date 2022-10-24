@@ -14,8 +14,6 @@ contract StoaMorphoCompoundVault {
     address private constant mcWETH =
         0x676E1B7d5856f4f69e10399685e17c2299370E95;
 
-    function fund() public payable {}
-
     function deposit(uint256 _amount) external {
         IERC20(WETH).approve(mcWETH, _amount);
         ISupplyVault(mcWETH).deposit(_amount, msg.sender);
