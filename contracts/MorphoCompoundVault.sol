@@ -7,7 +7,7 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 import {ISupplyVault} from "./interfaces/ISupplyVault.sol";
 import {ISupplyHarvestVault} from "./interfaces/ISupplyHarvestVault.sol";
 
-contract StoaMorphoCompoundVault {
+contract MorphoCompoundVault {
     using SafeERC20 for IERC20;
     // Token address
     address private constant WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
